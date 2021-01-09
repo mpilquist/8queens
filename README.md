@@ -8,7 +8,7 @@ To get started:
 
 You'll need a Java development kit installed as well as the SBT build tool. If you don't have these tools, we can get them via Couriser. First, install Coursier by choosing an installation method for your operating system on this page: https://get-coursier.io/docs/cli-installation. Then run `cs setup`.
 
-You'll also likely want and editor that's aware of Scala syntax. I recommend [VSCode](https://code.visualstudio.com) with the [Metals](https://scalameta.org/metals/docs/editors/vscode.html) extension.
+You'll also likely want an editor that's aware of Scala syntax. I recommend [VSCode](https://code.visualstudio.com) with the [Metals](https://scalameta.org/metals/docs/editors/vscode.html) extension.
 
 ### Clone this repository
 
