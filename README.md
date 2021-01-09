@@ -116,3 +116,7 @@ There are a few source files:
 
 You only need to edit `Board.scala`, replacing each occurrence of `???` with an implementation that causes the tests to pass.
 
+### Solution
+
+The `solution` branch contains a solution that passes all of the tests. Feel free to browse it if you get stuck, but try not to look!
+
