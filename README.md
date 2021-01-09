@@ -128,9 +128,9 @@ queens.BoardSuite:
 ### Code Layout
 
 There are a few source files:
- - `src/main/scala/queens/Board.scala` - defines the main `Board` type
- - `src/main/scala/queens/EightQueens.scala` - defines the program which initializes an 8x8 board and prints out all solutions
- - `src/test/scala/queens/BoardSuite.scala` - defines the unit tests for the `Board` type
+ - [`src/main/scala/queens/Board.scala`](src/main/scala/queens/Board.scala) - defines the main `Board` type
+ - [`src/main/scala/queens/EightQueens.scala`](src/main/scala/queens/EightQueens.scala) - defines the program which initializes an 8x8 board and prints out all solutions
+ - [`src/test/scala/queens/BoardSuite.scala`](src/test/scala/queens/BoardSuite.scala) - defines the unit tests for the `Board` type
 
 You only need to edit `Board.scala`, replacing each occurrence of `???` with an implementation that causes the tests to pass.
 
