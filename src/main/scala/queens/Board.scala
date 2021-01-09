@@ -39,8 +39,7 @@ case class Board(columns: Vector[Vector[Cell]]):
 
   /** Returns true if there are no queens on this board which can be captured. */
   def valid: Boolean =
-    columnsValid && rowsValid && diagonalsValid
-
+    ???
 
   /** Returns true if there are no queens in the same column. */
   private def columnsValid: Boolean =
@@ -49,7 +48,7 @@ case class Board(columns: Vector[Vector[Cell]]):
   /** Returns true if there are no queens in the same row. */
   private def rowsValid: Boolean =
     ???
-      
+
   /** Returns true if there are no queens in the same diagonal. */
   private def diagonalsValid: Boolean =
     ???
