@@ -27,15 +27,22 @@ case class Board(columns: Vector[Vector[Cell]]):
   def cell(columnNumber: Int, rowNumber: Int): Cell =
     columns(columnNumber)(rowNumber)
 
+  /** Returns a new board with a queen placed at the specified column and row. */
+  def placeQueen(columnNumber: Int, rowNumber: Int): Board =
+    place(columnNumber, rowNumber, Cell.Queen)
+
+  /** Sets the cell at the specified column and row to the supplied value. */
+  private def place(columnNumber: Int, rowNumber: Int, cell: Cell): Board =
+    val updatedRow = columns(columnNumber).updated(rowNumber, cell)
+    Board(columns.updated(columnNumber, updatedRow))
+ 
   /** Returns true if the specified cell is empty. */
   def empty(columnNumber: Int, rowNumber: Int): Boolean =
-    cell(columnNumber, rowNumber) == Cell.Empty
+    ???
 
   /** Provides a count of the number of queens placed on this board. */
   def queenCount: Int =
-    columns.foldLeft(0)((acc, row) =>
-      acc + row.foldLeft(0)((acc, cell) =>
-        acc + (if cell == Cell.Queen then 1 else 0)))
+    ???
 
   /** Returns true if there are no queens on this board which can be captured. */
   def valid: Boolean =
@@ -72,15 +79,6 @@ case class Board(columns: Vector[Vector[Cell]]):
       (empty(columnNumber, rowNumber) && 
         diagonalToRightIsEmpty(columnNumber + 1, rowNumber + rowDelta, rowDelta))
 
-  /** Returns a new board with a queen placed at the specified column and row. */
-  def placeQueen(columnNumber: Int, rowNumber: Int): Board =
-    place(columnNumber, rowNumber, Cell.Queen)
-
-  /** Sets the cell at the specified column and row to the supplied value. */
-  private def place(columnNumber: Int, rowNumber: Int, cell: Cell): Board =
-    val updatedRow = columns(columnNumber).updated(rowNumber, cell)
-    Board(columns.updated(columnNumber, updatedRow))
-  
   /** Returns a collection of all solutions that start with the current board. */
   def solutions: Iterable[Board] = solveColumn(0)
 
