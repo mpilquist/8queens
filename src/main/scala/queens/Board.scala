@@ -41,7 +41,6 @@ case class Board(columns: Vector[Vector[Cell]]):
   def valid: Boolean =
     columnsValid && rowsValid && diagonalsValid
 
-
   /** Returns true if there are no queens in the same column. */
   private def columnsValid: Boolean =
     columns.forall(_.filter(_ == Cell.Queen).size <= 1)
@@ -53,7 +52,7 @@ case class Board(columns: Vector[Vector[Cell]]):
         cell(columnNumber, rowNumber)
       }.filter(_ == Cell.Queen).size <= 1
     }
-      
+
   /** Returns true if there are no queens in the same diagonal. */
   private def diagonalsValid: Boolean =
     (0 until columnCount).forall { columnNumber =>
