@@ -125,6 +125,34 @@ queens.BoardSuite:
 [success] Total time: 9 s, completed Jan 9, 2021, 10:51:09 AM
 ```
 
+Then if you run the main program, you'll see output like this:
+
+```
+sbt:8queens> run
+[info] running queens.EightQueens
+Found 92 solutions...
+
+Solution 0:
+・・Q・・・・・
+・・・・・Q・・
+・・・Q・・・・
+・Q・・・・・・
+・・・・・・・Q
+・・・・Q・・・
+・・・・・・Q・
+Q・・・・・・・
+
+Solution 1:
+・・Q・・・・・
+・・・・Q・・・
+・Q・・・・・・
+・・・・・・・Q
+・・・・・Q・・
+・・・Q・・・・
+・・・・・・Q・
+Q・・・・・・・
+```
+
 ### Code Layout
 
 There are a few source files:
