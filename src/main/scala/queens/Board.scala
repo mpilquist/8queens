@@ -35,14 +35,16 @@ case class Board(columns: Vector[Vector[Cell]]):
   private def place(columnNumber: Int, rowNumber: Int, cell: Cell): Board =
     val updatedRow = columns(columnNumber).updated(rowNumber, cell)
     Board(columns.updated(columnNumber, updatedRow))
- 
+
   /** Returns true if the specified cell is empty. */
   def empty(columnNumber: Int, rowNumber: Int): Boolean =
-    ???
+    cell(columnNumber, rowNumber) == Cell.Empty
 
   /** Provides a count of the number of queens placed on this board. */
   def queenCount: Int =
-    ???
+    columns.foldLeft(0)((acc, row) =>
+      acc + row.foldLeft(0)((acc, cell) =>
+        acc + (if cell == Cell.Queen then 1 else 0)))
 
   /** Returns true if there are no queens on this board which can be captured. */
   def valid: Boolean =
