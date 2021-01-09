@@ -107,12 +107,30 @@ queens.BoardSuite:
 
 As indicated by the output, there are some unit tests already setup in this project. Your goal is to get them all passing. They are designed such that each successive test builds on the previous, so focus on getting the first test passing before moving on to the second.
 
+Once you get the tests passing, you'll see output like this:
+
+```
+sbt:8queens> test
+[info] compiling 1 Scala source to /Users/mpilquist/Development/oss/8queens/target/scala-3.0.0-M3/classes ...
+queens.BoardSuite:
+  + valid - empty 8x8 board is valid 0.064s
+  + valid - column conflicts 0.002s
+  + valid - row conflicts 0.001s
+  + valid - diagonal conflicts 0.001s
+  + solutions - empty 8x8 - all solutions are valid 0.197s
+  + solutions - empty 8x8 - all queens are placed 0.084s
+  + solutions - empty 8x8 - finds all solutions 0.043s
+  + solutions - 8x8 with A1 - finds all solutions 0.019s
+[info] Passed: Total 8, Failed 0, Errors 0, Passed 8
+[success] Total time: 9 s, completed Jan 9, 2021, 10:51:09 AM
+```
+
 ### Code Layout
 
 There are a few source files:
- - `src/main/scala/queens/Board.scala` - defines the main `Board` type
- - `src/main/scala/queens/EightQueens.scala` - defines the program which initializes an 8x8 board and prints out all solutions
- - `src/test/scala/queens/BoardSuite.scala` - defines the unit tests for the `Board` type
+ - [`src/main/scala/queens/Board.scala`](src/main/scala/queens/Board.scala) - defines the main `Board` type
+ - [`src/main/scala/queens/EightQueens.scala`](src/main/scala/queens/EightQueens.scala) - defines the program which initializes an 8x8 board and prints out all solutions
+ - [`src/test/scala/queens/BoardSuite.scala`](src/test/scala/queens/BoardSuite.scala) - defines the unit tests for the `Board` type
 
 You only need to edit `Board.scala`, replacing each occurrence of `???` with an implementation that causes the tests to pass.
 
