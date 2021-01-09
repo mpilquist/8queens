@@ -6,6 +6,18 @@ class BoardSuite extends FunSuite:
 
   val empty8x8 = Board.make(8)
 
+  test("empty") {
+    assert(empty8x8.empty(0, 0))
+    assert(!empty8x8.placeQueen(0, 0).empty(0, 0))
+    assert(empty8x8.placeQueen(0, 0).empty(1, 0))
+  }
+
+  test("queenCount") {
+    assertEquals(empty8x8.queenCount, 0)
+    assertEquals(empty8x8.placeQueen(0, 0).queenCount, 1)
+    assertEquals(empty8x8.placeQueen(0, 0).placeQueen(1, 1).queenCount, 2)
+  }
+
   test("valid - empty 8x8 board is valid") {
     assert(empty8x8.valid)
   }

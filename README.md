@@ -69,40 +69,49 @@ The `test` command will run the test suite:
 
 ```
 sbt:8queens> test
+[info] compiling 1 Scala source to /Users/mpilquist/Development/oss/8queens/target/scala-3.0.0-M3/classes ...
+[info] compiling 1 Scala source to /Users/mpilquist/Development/oss/8queens/target/scala-3.0.0-M3/test-classes ...
 queens.BoardSuite:
-==> X queens.BoardSuite.valid - empty 8x8 board is valid  0.039s scala.NotImplementedError: an implementation is missing
+==> X queens.BoardSuite.empty  0.035s scala.NotImplementedError: an implementation is missing
     at munit.FunSuite.assert(FunSuite.scala:11)
-    at queens.BoardSuite.$init$$$anonfun$1(BoardSuite.scala:22)
-==> X queens.BoardSuite.valid - column conflicts  0.002s scala.NotImplementedError: an implementation is missing
+    at queens.BoardSuite.$init$$$anonfun$1(BoardSuite.scala:18)
+==> X queens.BoardSuite.queenCount  0.001s scala.NotImplementedError: an implementation is missing
+    at scala.Predef$.$qmark$qmark$qmark(Predef.scala:345)
+    at queens.Board.queenCount(Board.scala:45)
+    at queens.BoardSuite.$init$$$anonfun$2(BoardSuite.scala:16)
+==> X queens.BoardSuite.valid - empty 8x8 board is valid  0.001s scala.NotImplementedError: an implementation is missing
     at munit.FunSuite.assert(FunSuite.scala:11)
-    at queens.BoardSuite.$init$$$anonfun$2(BoardSuite.scala:22)
+    at queens.BoardSuite.$init$$$anonfun$3(BoardSuite.scala:18)
+==> X queens.BoardSuite.valid - column conflicts  0.001s scala.NotImplementedError: an implementation is missing
+    at munit.FunSuite.assert(FunSuite.scala:11)
+    at queens.BoardSuite.$init$$$anonfun$4(BoardSuite.scala:18)
 ==> X queens.BoardSuite.valid - row conflicts  0.001s scala.NotImplementedError: an implementation is missing
     at munit.FunSuite.assert(FunSuite.scala:11)
-    at queens.BoardSuite.$init$$$anonfun$3(BoardSuite.scala:22)
-==> X queens.BoardSuite.valid - diagonal conflicts  0.001s scala.NotImplementedError: an implementation is missing
+    at queens.BoardSuite.$init$$$anonfun$5(BoardSuite.scala:18)
+==> X queens.BoardSuite.valid - diagonal conflicts  0.002s scala.NotImplementedError: an implementation is missing
     at munit.FunSuite.assert(FunSuite.scala:11)
-    at queens.BoardSuite.$init$$$anonfun$4(BoardSuite.scala:22)
-==> X queens.BoardSuite.solutions - empty 8x8 - all solutions are valid  0.001s scala.NotImplementedError: an implementation is missing
+    at queens.BoardSuite.$init$$$anonfun$6(BoardSuite.scala:18)
+==> X queens.BoardSuite.solutions - empty 8x8 - all solutions are valid  0.0s scala.NotImplementedError: an implementation is missing
     at scala.Predef$.$qmark$qmark$qmark(Predef.scala:345)
-    at queens.Board.solutions(Board.scala:41)
-    at queens.BoardSuite.$init$$$anonfun$5(BoardSuite.scala:27)
-==> X queens.BoardSuite.solutions - empty 8x8 - all queens are placed  0.001s scala.NotImplementedError: an implementation is missing
+    at queens.Board.solutions(Board.scala:65)
+    at queens.BoardSuite.$init$$$anonfun$7(BoardSuite.scala:39)
+==> X queens.BoardSuite.solutions - empty 8x8 - all queens are placed  0.0s scala.NotImplementedError: an implementation is missing
     at scala.Predef$.$qmark$qmark$qmark(Predef.scala:345)
-    at queens.Board.solutions(Board.scala:41)
-    at queens.BoardSuite.$init$$$anonfun$6(BoardSuite.scala:32)
-==> X queens.BoardSuite.solutions - empty 8x8 - finds all solutions  0.001s scala.NotImplementedError: an implementation is missing
+    at queens.Board.solutions(Board.scala:65)
+    at queens.BoardSuite.$init$$$anonfun$8(BoardSuite.scala:44)
+==> X queens.BoardSuite.solutions - empty 8x8 - finds all solutions  0.0s scala.NotImplementedError: an implementation is missing
     at scala.Predef$.$qmark$qmark$qmark(Predef.scala:345)
-    at queens.Board.solutions(Board.scala:41)
-    at queens.BoardSuite.$init$$$anonfun$7(BoardSuite.scala:37)
+    at queens.Board.solutions(Board.scala:65)
+    at queens.BoardSuite.$init$$$anonfun$9(BoardSuite.scala:49)
 ==> X queens.BoardSuite.solutions - 8x8 with A1 - finds all solutions  0.0s scala.NotImplementedError: an implementation is missing
     at scala.Predef$.$qmark$qmark$qmark(Predef.scala:345)
-    at queens.Board.solutions(Board.scala:41)
-    at queens.BoardSuite.$init$$$anonfun$8(BoardSuite.scala:46)
-[error] Failed: Total 8, Failed 8, Errors 0, Passed 0
+    at queens.Board.solutions(Board.scala:65)
+    at queens.BoardSuite.$init$$$anonfun$10(BoardSuite.scala:58)
+[error] Failed: Total 10, Failed 10, Errors 0, Passed 0
 [error] Failed tests:
 [error] 	queens.BoardSuite
 [error] (Test / test) sbt.TestsFailedException: Tests unsuccessful
-[error] Total time: 1 s, completed Jan 9, 2021, 10:39:15 AM
+[error] Total time: 12 s, completed Jan 9, 2021, 11:40:26 AM
 ```
 
 As indicated by the output, there are some unit tests already setup in this project. Your goal is to get them all passing. They are designed such that each successive test builds on the previous, so focus on getting the first test passing before moving on to the second.
@@ -111,18 +120,19 @@ Once you get the tests passing, you'll see output like this:
 
 ```
 sbt:8queens> test
-[info] compiling 1 Scala source to /Users/mpilquist/Development/oss/8queens/target/scala-3.0.0-M3/classes ...
 queens.BoardSuite:
-  + valid - empty 8x8 board is valid 0.064s
-  + valid - column conflicts 0.002s
-  + valid - row conflicts 0.001s
+  + empty 0.006s
+  + queenCount 0.001s
+  + valid - empty 8x8 board is valid 0.003s
+  + valid - column conflicts 0.0s
+  + valid - row conflicts 0.0s
   + valid - diagonal conflicts 0.001s
-  + solutions - empty 8x8 - all solutions are valid 0.197s
-  + solutions - empty 8x8 - all queens are placed 0.084s
-  + solutions - empty 8x8 - finds all solutions 0.043s
-  + solutions - 8x8 with A1 - finds all solutions 0.019s
-[info] Passed: Total 8, Failed 0, Errors 0, Passed 8
-[success] Total time: 9 s, completed Jan 9, 2021, 10:51:09 AM
+  + solutions - empty 8x8 - all solutions are valid 0.071s
+  + solutions - empty 8x8 - all queens are placed 0.044s
+  + solutions - empty 8x8 - finds all solutions 0.039s
+  + solutions - 8x8 with A1 - finds all solutions 0.01s
+[info] Passed: Total 10, Failed 0, Errors 0, Passed 10
+[success] Total time: 1 s, completed Jan 9, 2021, 11:41:02 AM
 ```
 
 Then if you run the main program, you'll see output like this:
