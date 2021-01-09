@@ -1,6 +1,6 @@
 The [Eight Queens problem](https://en.wikipedia.org/wiki/Eight_queens_puzzle) asks how 8 queens can be placed on a chess board such that no queen can capture any other queen. It's a classic problem in computer science, popularized by Dijkstra as an example of backtracking.
 
-This repository provides a starting point for folks that want to try solving the eight queens problem using the Scala programming language. The intended audience are folks who are new to Scala and looking for an exercise. The main branch contains the skeleton of the problem and the necessary build setup to get moving right away.
+This repository provides a starting point for folks that want to try solving the eight queens problem using the Scala 3 programming language. The intended audience are folks who are new to Scala and looking for an exercise. The main branch contains the skeleton of the problem and the necessary build setup to get moving right away.
 
 To get started:
 
@@ -105,7 +105,7 @@ queens.BoardSuite:
 [error] Total time: 1 s, completed Jan 9, 2021, 10:39:15 AM
 ```
 
-As indicated by the output, there's a number of unit tests already setup in this project. Your goal is to get them all passing. They are designed such that each successive test builds on the previous, so focus on getting the first test passing before moving on to the second.
+As indicated by the output, there are some unit tests already setup in this project. Your goal is to get them all passing. They are designed such that each successive test builds on the previous, so focus on getting the first test passing before moving on to the second.
 
 ### Code Layout
 
