@@ -1,8 +1,6 @@
 name := "8queens"
 
-scalaVersion := "3.0.0-M3"
+scalaVersion := "3.1.0"
 
-libraryDependencies += "org.scalameta" %% "munit" % "0.7.20"
-
-testFrameworks += new TestFramework("munit.Framework")
+libraryDependencies += "org.scalameta" %% "munit" % "1.0.0-M1"
 

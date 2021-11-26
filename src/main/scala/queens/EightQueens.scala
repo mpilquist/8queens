@@ -1,11 +1,10 @@
 package queens
 
-object EightQueens extends App:
+@main def EightQueens =
   val board = Board.make(8, 8)
   val solutions = board.solutions
   println(s"Found ${solutions.size} solutions...")
-  solutions.zipWithIndex.foreach { (s, idx) =>
+  for (s, idx) <- solutions.zipWithIndex do
     println("")
     println(s"Solution $idx:")
     println(s)
-  }
