@@ -1,6 +1,6 @@
 name := "8queens"
 
-scalaVersion := "3.1.0"
+scalaVersion := "3.4.1"
 
-libraryDependencies += "org.scalameta" %% "munit" % "1.0.0-M1"
+libraryDependencies += "org.scalameta" %% "munit" % "1.0.0-RC1"
 
